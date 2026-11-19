@@ -1,0 +1,14 @@
+{
+  "frames": [
+    { "id": "01", "src": "assets/frames/01.webp", "stage": "花苞", "source": "花朵生长阶段/01-闭合花苞.png" },
+    { "id": "02", "src": "assets/frames/02.webp", "stage": "花苞", "source": "花朵生长阶段/02-顶端松动.png" },
+    { "id": "03", "src": "assets/frames/03.webp", "stage": "初绽", "source": "花朵生长阶段/03-外层微张.png" },
+    { "id": "04", "src": "assets/frames/04.webp", "stage": "初绽", "source": "花朵生长阶段/04-外层初分.png" },
+    { "id": "05", "src": "assets/frames/05.webp", "stage": "半开", "source": "花朵生长阶段/05-杯状.png" },
+    { "id": "06", "src": "assets/frames/06.webp", "stage": "半开", "source": "花朵生长阶段/06-宽杯状.png" },
+    { "id": "07", "src": "assets/frames/07.webp", "stage": "半开", "source": "花朵生长阶段/07-半开.png" },
+    { "id": "08", "src": "assets/frames/08.webp", "stage": "半开", "source": "花朵生长阶段/08-半开过渡.png" },
+    { "id": "09", "src": "assets/frames/09.webp", "stage": "盛放", "source": "花朵生长阶段/09-接近盛开.png" },
+    { "id": "10", "src": "assets/frames/10.webp", "stage": "盛放", "source": "花朵生长阶段/10-完全盛开.png" }
+  ]
+}
