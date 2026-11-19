@@ -1,0 +1,14 @@
+{
+  "name": "for-you-gesture-flower",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local camera gesture controlled flower bloom experience",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

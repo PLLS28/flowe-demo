@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070a07" />
+    <meta name="color-scheme" content="dark" />
+    <title>For you</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css?v=20261118-2" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="For you">For you</div>
+        <div class="topbar-meta">
+          <div class="image-progress">
+            <span id="frameProgressText">影像准备中</span>
+            <progress id="frameProgress" max="30" value="0" aria-label="花朵画面加载进度"></progress>
+          </div>
+          <span class="local-note">
+            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+          </span>
+        </div>
+      </header>
+
+      <main class="experience">
+        <section class="flower-area" id="flowerFrame" aria-label="花朵开放序列">
+          <canvas
+            id="flowerCanvas"
+            role="img"
+            aria-label="花朵开放度 0%，花苞"
+          ></canvas>
+          <div class="frame-status" id="frameStatus" aria-live="polite">
+            <span class="status-pulse" aria-hidden="true"></span>
+            正在显影
+          </div>
+          <div class="image-fallback" id="frameFallback" hidden>
+            <span class="fallback-mark" aria-hidden="true"></span>
+            <p>花朵影像未能载入</p>
+            <small>请刷新页面或检查本地画面文件</small>
+          </div>
+          <div class="frame-vignette" aria-hidden="true"></div>
+        </section>
+
+        <aside class="side-panel" aria-label="开放状态与摄像头控制">
+          <section class="stage-block" aria-live="polite">
+            <div class="stage-eyebrow">
+              <span>开放度</span>
+              <span id="sequencePosition">影像载入中</span>
+            </div>
+            <div class="stage-number">
+              <span id="opennessPercent">0</span><span class="percent-sign">%</span>
+            </div>
+            <div class="stage-heading-row">
+              <h1 id="stageName">花苞</h1>
+              <span class="stage-dot" aria-hidden="true"></span>
+            </div>
+            <div class="stage-meter" aria-hidden="true">
+              <span id="stageMeterFill"></span>
+            </div>
+          </section>
+
+          <div class="panel-spacer" aria-hidden="true"></div>
+
+          <section class="mode-block">
+            <div class="block-label">控制方式</div>
+            <div class="segmented" role="group" aria-label="花朵控制方式">
+              <button class="segment is-active" id="manualModeBtn" type="button" aria-pressed="true">
+                <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+                <span>手动</span>
+              </button>
+              <button class="segment" id="gestureModeBtn" type="button" aria-pressed="false" disabled>
+                <i data-lucide="hand" aria-hidden="true"></i>
+                <span>手势</span>
+              </button>
+            </div>
+            <p class="status-line" id="statusText" role="status" aria-live="polite">手动控制就绪</p>
+          </section>
+
+          <section class="camera-block" aria-label="摄像头预览">
+            <div class="camera-header">
+              <span>手势预览</span>
+              <span class="camera-state" id="cameraState">待机</span>
+            </div>
+            <div class="camera-preview">
+              <canvas id="cameraCanvas" width="640" height="360" aria-label="镜像摄像头预览与手部关键点"></canvas>
+              <div class="camera-placeholder" id="cameraPlaceholder">
+                <i data-lucide="camera-off" aria-hidden="true"></i>
+                <span id="cameraPlaceholderText">摄像头未开启</span>
+              </div>
+              <div class="camera-loading" id="cameraLoading" hidden>
+                <i data-lucide="loader-circle" aria-hidden="true"></i>
+                <span>载入识别模型</span>
+              </div>
+            </div>
+            <button class="primary-button" id="cameraButton" type="button" aria-pressed="false">
+              <span class="button-icon icon-idle">
+                <i data-lucide="camera" aria-hidden="true"></i>
+              </span>
+              <span class="button-icon icon-loading" hidden>
+                <i data-lucide="loader-circle" aria-hidden="true"></i>
+              </span>
+              <span class="button-icon icon-active" hidden>
+                <i data-lucide="square" aria-hidden="true"></i>
+              </span>
+              <span id="cameraButtonText">开启摄像头</span>
+            </button>
+          </section>
+        </aside>
+
+        <section class="control-dock">
+          <div class="range-header">
+            <label for="opennessSlider">开放度</label>
+            <span id="controlModeText">手动</span>
+          </div>
+          <input
+            id="opennessSlider"
+            class="openness-slider"
+            type="range"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            aria-label="花朵开放度，0 为花苞，100 为盛放"
+          />
+          <div class="range-footer" aria-hidden="true">
+            <span>花苞</span>
+            <span>盛放</span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <video id="cameraVideo" muted playsinline hidden></video>
+    <script src="assets/vendor/lucide.min.js"></script>
+    <script type="module" src="app.js?v=20261118-2"></script>
+  </body>
+</html>
